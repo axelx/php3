@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'domain_name'=>"php3_",
+    'domain_name'=>"{{domain}}",
 ];
