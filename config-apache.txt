@@ -1,0 +1,10 @@
+<Directory />
+
+    AllowOverride       None
+   # Options             -MultiViews -Indexes -FollowSymLinks -IncludesNoExec -Includes -ExecCGI
+    Options             -MultiViews -Indexes -IncludesNoExec -Includes -ExecCGI
+    Require             all denied
+
+</Directory>
+
+Меняем в текущем конфиге апача вот так примерно.

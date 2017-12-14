@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<project name="PHP-3" basedir="../" default="symlink">
+<project name="PHP-3" basedir="." default="symlink">
 
 
     <target name="vars">
@@ -30,35 +30,26 @@
     <target name="copy" depends="vars">
         <mkdir dir="${target.dir}" />
 
-        <!--<replace file="myfile.html" token="OLD" value="NEW"/>.-->
-
-    <!--    <copy todir="${target.dir}">
+        <copy todir="${target.dir}">
             <fileset dir="${tmp.dir}">
                 <include name="**" />
+                <!--<include name="public/**" />-->
+                <exclude name="vendor/**" />
+                <exclude name=".idea/**" />
             </fileset>
+        </copy>
+        <echo msg="Copy project" />
 
-        </copy>-->
-
-        <copy file="${project.basedir}/php3/protected/config.php" todir="${target.dir}">
-        <!--<copy todir="${target.dir}">-->
-            <!--<fileset dir="${tmp.dir}">-->
-                <!--<include name="${project.basedir}/protected/config.php" />-->
-            <!--</fileset>-->
-            <!--<filterchain>-->
-                <!--<expandproperties/>-->
-            <!--</filterchain>-->
-
-
+        <!--Create config-->
+        <copy file="${project.basedir}/protected/config.php" todir="${target.dir}/protected/" overwrite="true">
             <filterchain>
                 <replacetokens begintoken="{{" endtoken="}}">
                     <token key="domain" value="${domain_name}" />
                 </replacetokens>
             </filterchain>
-
-
-
-
         </copy>
+        <echo msg="Copy config with replace" />
+
     </target>
 
     <target name="composer" depends="copy">
