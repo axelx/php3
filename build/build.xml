@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<project name="PHP-3" basedir="." default="symlink">
+    <target name="vars">
+        <echo msg="Setting local vars..."/>
+        <resolvepath propertyName="tmp.dir" file="${project.basedir}" />
+        <echo msg="Tmp dir is: ${tmp.dir}" />
+
+        <php returnProperty="build.time" function="date">
+            <param value="Y-m-d-H-i-s"/>
+        </php>
+
+        <!--<resolvepath propertyName="target.dir" file="c:\OpenServer\domains\php3.site" />-->
+        <resolvepath propertyName="target.dir" file="c:\OpenServer\src-temp\php3.site\${build.time}" />
+        <echo msg="target dir is: ${target.dir}" />
+
+    </target>
+    <target name="copy" depends="vars">
+        <mkdir dir="${target.dir}" />
+
+    <!--    <copy todir="${target.dir}">
+            <fileset dir="${tmp.dir}">
+                <include name="**" />
+            </fileset>
+
+        </copy>-->
+    </target>
+
+    <target name="composer" depends="copy">
+        <echo msg="still composer do not use yet" />
+        <!--<exec dir="${target.dir}" command="composer install" checkreturn="true" passthru="true"/>-->
+    </target>
+    <target name="symlink" depends="copy">
+        <echo msg="symlink use or no?" />
+
+        <!--Кажись потребуется только для винды, для моей.-->
+        <exec command="rd c:\OpenServer\domains\php3.site /q" />
+
+        <symlink link="c:\OpenServer\domains\php3.site" target="c:\OpenServer\src-temp\php3.site\${build.time}" overwrite="true" />
+
+    </target>
+
+</project>
