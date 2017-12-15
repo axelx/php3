@@ -17,7 +17,6 @@
         <echo msg="target dir is: ${target.dir}" />
 
         <!--название домена который будет на продакшне-->
-        <!--<resolvepath propertyName="domain_name" file="${project.basedir}" />-->
         <property name="domain_name" value="php3.site" />
 
 
@@ -53,16 +52,16 @@
     </target>
 
     <target name="composer" depends="copy">
-        <echo msg="still composer do not use yet" />
-        <!--<exec dir="${target.dir}" command="composer install" checkreturn="true" passthru="true"/>-->
+        <echo msg="still composer do not use yet   target dir = ${target.dir}" />
+        <exec dir="${target.dir}" command="composer install" checkreturn="true" passthru="true"/>
     </target>
-    <target name="symlink" depends="copy">
+
+
+    <target name="symlink" depends="composer">
         <echo msg="symlink use or no?" />
 
-        <!--Кажись потребуется только для винды, для моей.-->
-        <!--<exec command="rd c:\OpenServer\domains\php3.site /q" />-->
+        <!--Удаляем симлинк средствами винды. Кажись потребуется только для винды, для моей.-->
         <exec command="rd c:\OpenServer\domains\${domain_name} /q" />
-
         <!--<symlink link="c:\OpenServer\domains\php3.site" target="c:\OpenServer\src-temp\php3.site\${build.time}" overwrite="true" />-->
         <symlink link="c:\OpenServer\domains\${domain_name}" target="c:\OpenServer\src-temp\php3.site\${build.time}" overwrite="true" />
 
