@@ -76,10 +76,9 @@
         <!--Удаляем симлинк средствами винды. Кажись потребуется только для винды, для моей.-->
         <exec command="rd c:\OpenServer\domains\${domain_name} /q" />
         <!--<symlink link="c:\OpenServer\domains\php3.site" target="c:\OpenServer\src-temp\php3.site\${build.time}" overwrite="true" />-->
-        <symlink link="c:\OpenServer\domains\${domain_name}" target="c:\OpenServer\src-temp\php3.site\${build.time}" overwrite="true" />
+        <symlink link="c:\OpenServer\domains\${domain_name}" target="c:\OpenServer\src-temp\${domain_name}\${build.time}" overwrite="true" />
         <!-- симлинк на картинки-->
-        <!--<symlink link="c:\OpenServer\domains\${domain_name}\public\storage" target="c:\OpenServer\src-temp\php3.site\_img" overwrite="true" />-->
-        <symlink link="c:\OpenServer\domains\${domain_name}\public\storage" target="/../../../src-temp/php3.site/_img/" overwrite="true" />
+        <symlink link="c:\OpenServer\domains\${domain_name}\public\storage" target="c:\OpenServer\src-temp\storage\" overwrite="true" />
 
     </target>
 

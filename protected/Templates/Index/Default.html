@@ -14,10 +14,12 @@
     </form>
 
     <hr>
-    <img src="/../../src-temp/php3.site/_img/265.jpg" alt="">
-    <img src="/../../src-temp/php3.site/_img/268.jpg" alt="">
 
 
+    <hr>
+    {% for img in allImgFromStorage %}
+        <img src='/storage/{{img}}' alt=''>
+    {% endfor %}
 
 
 {% endblock %}

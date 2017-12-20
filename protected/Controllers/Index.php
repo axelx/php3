@@ -21,18 +21,28 @@ class Index
         $this->data->build = $this->app->config->build;
 
         $this->data->images = Helpers::listDir(ROOT_PATH_PUBLIC . '/storage');
-//        var_dump($this->data->images); die();
+        echo "<pre>";
+        $tmpImg = [];
 
-
+        foreach ($this->data->images as $item) {
+//            var_dump(basename($item));
+            $fileName = basename($item);
+            if ("." == $fileName || ".." == $fileName){
+                continue;
+            }else{
+                $item = $fileName;
+            }
+            $tmpImg[] = $item;
+        }
+        $this->data->allImgFromStorage = $tmpImg;
     }
 
     public function actionUpload()
     {
         $uploader = new Uploader('image');
-        #Сделать любое другое место, чтобы в сборку не попадало, а потом сделать симлинк на эту папку.
-//        $uploader->setPath('/storage/');
-//        $uploader->setPath('c:\OpenServer\src-temp\php3.site\_img\\');
-        $uploader->setPath('/../../../src-temp/php3.site/_img/');
+//        $uploader->setPath('/../../../src-temp/php3.site/_img/');
+        $uploader->setPath('/../../../storage/');
+
         $uploader();
         $this->redirect('/');
     }
