@@ -17,7 +17,7 @@ class m_1513755222_removeRoleTable
 
             RENAME TABLE `role` TO `removed_role`
 
-           -- DROP TABLE role;
+           -- DROP TABLE role; 
         ');
     }
 
