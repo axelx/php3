@@ -17,9 +17,14 @@
 
 
     <hr>
-    {% for img in allImgFromStorage %}
-        <img src='/storage/{{img}}' alt=''>
-    {% endfor %}
+    <!--{% for img in allImgFromStorage %}-->
+        <!--<img src='/storage/{{img}}' alt=''>-->
+    <!--{% endfor %}-->
+
+    "Имя :" {{ name }}
+    "Отчество :" {{ patronymic }}
+    "Фамилия :" {{ last_name }}
+
 
 
 {% endblock %}

@@ -83,3 +83,10 @@
     </target>
 
 </project>
+
+
+        <!--local-->
+        <!--php phing.phar -f ./build/production/build.xml -Ddb.user=root -Ddb.password= -Ddb.name=profit-->
+
+
+        <!--   php phing.phar -f ./build/production/build.xml -Ddb.user=root -Ddb.password= -Ddb.name=php3-->

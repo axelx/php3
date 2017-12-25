@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnFailure="true"
+         syntaxCheck="true">
+
+    <!-- запускаем все тесты из корневой директории -->
+    <testsuite name="Math">
+        <directory>Math</directory>
+    </testsuite>
+
+</phpunit>

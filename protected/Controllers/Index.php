@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
 use T4\Core\Config;
 use T4\Core\Std;
 use T4\Fs\Helpers;
@@ -35,6 +36,19 @@ class Index
             $tmpImg[] = $item;
         }
         $this->data->allImgFromStorage = $tmpImg;
+
+//===================================
+
+        $data = User::findAll();
+        $dd = User::getAllUser();
+        var_dump($dd);
+
+//        $this->data->name = $data[0]->name;
+//        $this->data->patronymic = $data[0]->patronymic;
+//        $this->data->last_name = $data[0]->last_name    ;
+
+
+
     }
 
     public function actionUpload()

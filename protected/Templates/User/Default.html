@@ -1,0 +1,25 @@
+{% extends 'Index.html' %}
+
+{% block content %}
+
+    <!--{% for img in allImgFromStorage %}-->
+    <!--<img src='/storage/{{img}}' alt=''>-->
+    <!--{% endfor %}-->
+
+    <!--"Имя :" {{ name }}-->
+    <!--"Отчество :" {{ patronymic }}-->
+    <!--"Фамилия :" {{ last_name }}-->
+
+<table class="table table-striped">
+    {% for item in items %}
+        <tr>
+             <td>{{item.name}}</td>
+             <td>{{item.patronymic}}</td>
+             <td>{{item.last_name}}</td>
+             <td>{{item.email}}</td>
+             <td>111</td>
+        </tr>
+    {% endfor%}
+</table>
+
+    {% endblock %}
