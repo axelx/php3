@@ -89,27 +89,3 @@ class User extends Controller
     }
 
 }
-
-/*
-function testUnitTest ($user){
-//    echo $user->last_name ?? "sfdsdf" ;
-    if ( ($user->name ?? false ) && ($user->patranomic ?? false ) && ($user->last_name ?? false ) ){
-
-
-        return $user->name . $user->patranomic  . $user->last_name ;
-
-    } elseif ( ($user->name ?? false ) && ($user->last_name ?? false ) ){
-
-
-        return $user->name   . $user->last_name ;
-
-    }else {
-
-
-        return $user->email;
-
-    }
-
-    return "<br>Пока ничего<br>";
-
-}*/
