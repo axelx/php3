@@ -17,33 +17,74 @@ class User extends Controller
 {
     public function actionDefault()
     {
+//        echo " teett";
+
         $items = ModUser::findAll();
+
+        echo $this->getFullName($items);
 //            echo "<pre>";
 //        var_dump($items);
 
-        foreach ($items as $item) {
+//        foreach ($items as $item) {
+//
+//            if ( ($item->name ?? false ) && ($item->patranomic ?? false ) && ($item->last_name ?? false ) ){
+//
+//                echo $item->name . $item->patranomic  . $item->last_name ;
+//
+//            } elseif ( ($item->name ?? false ) && ($item->last_name ?? false ) ){
+//
+//                echo $item->name   . $item->last_name ;
+//
+//            }else {
+//
+//                echo $item->email;
+//
+//            }
+//
+//            echo "<br>";
+//
+//        }
 
-            if ( ($item->name ?? false ) && ($item->patranomic ?? false ) && ($item->last_name ?? false ) ){
 
-                echo $item->name . $item->patranomic  . $item->last_name ;
+//        $this->data->items = ModUser::getAllUser();
 
-            } elseif ( ($item->name ?? false ) && ($item->last_name ?? false ) ){
 
-                echo $item->name   . $item->last_name ;
+    }
 
-            }else {
+    public static function getFullName($items){
 
-                echo $item->email;
-
-            }
-
-            echo "<br>";
-
+        $res = '';
+//        echo "<pre>";
+//        var_dump($items);
+        if (empty($items)){
+            var_dump("990909");
+            return "";
         }
 
 
-        $this->data->items = ModUser::getAllUser();
+        foreach ($items as $item) {
 
+//            var_dump($item);
+
+            if ( ($item['name']?? false ) && ($item['patranomic'] ?? false ) && ($item['last_name'] ?? false ) ){
+
+                $res .= $item['name'] . $item['patranomic']  . $item['last_name'] ;
+
+            } elseif ( ($item['name'] ?? false ) && ($item['last_name'] ?? false ) ){
+
+                $res .= $item['name']   . $item['last_name'] ;
+
+            }else {
+
+                $res .= $item['email'];
+
+            }
+
+            $res .= "<br>";
+
+        }
+
+        return $res;
 
     }
 

@@ -11,5 +11,8 @@
     <testsuite name="Math">
         <directory>Math</directory>
     </testsuite>
+    <testsuite name="Project">
+        <directory>Project</directory>
+    </testsuite>
 
 </phpunit>

@@ -15,6 +15,7 @@
   },
   "require": {
     "pr-of-it/t4": "dev-master",
+    "swiftmailer/swiftmailer": "6.*",
     "phpunit/phpunit": "*"
   }
 }
