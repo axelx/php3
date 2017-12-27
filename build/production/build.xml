@@ -69,8 +69,12 @@
         <exec dir="${target.dir}" command="php protected/t4.php /migrate" checkreturn="true" passthru="true"/>
 
     </target>
+    <target name="UnitTest" depends="migrate">
+        <exec dir="${target.dir}" command=".\vendor\bin\phpunit.bat -c .\tests\phpunit.xml" checkreturn="true" passthru="true"/>
 
-    <target name="symlink" depends="migrate">
+    </target>
+
+    <target name="symlink" depends="UnitTest">
         <echo msg="symlink use or no?" />
 
         <!--Удаляем симлинк средствами винды. Кажись потребуется только для винды, для моей.-->
